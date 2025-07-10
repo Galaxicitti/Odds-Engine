@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,34 @@ const Index = () => {
   const [balance, setBalance] = useState(10000);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Generate mock price history data
+  const generatePriceHistory = (currentYes: number, currentNo: number) => {
+    const history = [];
+    let yesPrice = currentYes + Math.random() * 20 - 10;
+    let noPrice = 100 - yesPrice;
+    
+    for (let i = 0; i < 24; i++) {
+      const variation = (Math.random() - 0.5) * 10;
+      yesPrice = Math.max(10, Math.min(90, yesPrice + variation));
+      noPrice = 100 - yesPrice;
+      
+      history.push({
+        time: `${i}h`,
+        yesPrice: Math.round(yesPrice),
+        noPrice: Math.round(noPrice)
+      });
+    }
+    
+    // Ensure the last point matches current prices
+    history[history.length - 1] = {
+      time: "now",
+      yesPrice: currentYes,
+      noPrice: currentNo
+    };
+    
+    return history;
+  };
+
   // Mock trading events data
   const tradingEvents = [
     {
@@ -26,7 +55,8 @@ const Index = () => {
       volume: "₹2.3L",
       timeLeft: "2 days",
       trending: true,
-      image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(45, 55)
     },
     {
       id: 2,
@@ -37,7 +67,8 @@ const Index = () => {
       volume: "₹5.1L",
       timeLeft: "5 days",
       trending: false,
-      image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(65, 35)
     },
     {
       id: 3,
@@ -48,7 +79,8 @@ const Index = () => {
       volume: "₹1.8L",
       timeLeft: "12 days",
       trending: true,
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(38, 62)
     },
     {
       id: 4,
@@ -59,7 +91,8 @@ const Index = () => {
       volume: "₹95K",
       timeLeft: "1 day",
       trending: false,
-      image: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(72, 28)
     },
     {
       id: 5,
@@ -70,7 +103,8 @@ const Index = () => {
       volume: "₹3.2L",
       timeLeft: "30 days",
       trending: true,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(52, 48)
     },
     {
       id: 6,
@@ -81,7 +115,8 @@ const Index = () => {
       volume: "₹4.7L",
       timeLeft: "4 days",
       trending: false,
-      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
+      priceHistory: generatePriceHistory(41, 59)
     }
   ];
 

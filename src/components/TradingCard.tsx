@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { TrendingUp, Clock, Users, ArrowUp, ArrowDown, Flame } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import PriceChart from "./PriceChart";
 
 interface TradingEvent {
   id: number;
@@ -18,6 +19,11 @@ interface TradingEvent {
   timeLeft: string;
   trending: boolean;
   image: string;
+  priceHistory: Array<{
+    time: string;
+    yesPrice: number;
+    noPrice: number;
+  }>;
 }
 
 interface TradingCardProps {
@@ -92,6 +98,24 @@ const TradingCard = ({ event, onTrade }: TradingCardProps) => {
       </CardHeader>
 
       <CardContent className="pt-0 bg-gradient-to-b from-slate-900/50 to-slate-900">
+        {/* Price Chart */}
+        <div className="mb-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm text-slate-400 font-medium">Price Trend</span>
+            <div className="flex gap-3 text-xs">
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-green-400">YES</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <span className="text-red-400">NO</span>
+              </div>
+            </div>
+          </div>
+          <PriceChart data={event.priceHistory} />
+        </div>
+
         <div className="grid grid-cols-2 gap-4 mb-4">
           <Dialog>
             <DialogTrigger asChild>
