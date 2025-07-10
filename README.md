@@ -36,7 +36,7 @@ This project is licensed under the [MIT License](LICENSE).
 **Galaxy Rawat**  
 - 🌐 [Portfolio](https://galaxy-rawat-online.netlify.app/)  
 - 💼 [LinkedIn](https://www.linkedin.com/in/galaxy-rawat/)  
-- 📫 galaxyrawat@email.com  
+- 📫 gvpg223@email.com  
 
 ---
 
