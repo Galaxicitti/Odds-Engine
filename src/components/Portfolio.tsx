@@ -235,10 +235,7 @@ const Portfolio = () => {
                     </p>
                   </div>
                 </div>
-                <div className="border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center">
-                <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
-              © 2024 Galaxy Rawat. All rights reserved.</p>
-                  </div>
+               
                 <div className="text-xs text-gray-500 mt-2">{trade.date}</div>
               </div>
             ))}
