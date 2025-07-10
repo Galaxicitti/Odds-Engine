@@ -103,8 +103,8 @@ const Index = () => {
                   OddsEngine
                 </h1>
               </div>
-              <Badge variant="secondary" className="hidden sm:inline-flex bg-amber-900/30 text-amber-300 border-amber-700">
-                PREMIUM
+              <Badge variant="secondary" className="hidden sm:inline-flex bg-blue-900/30 text-blue-300 border-blue-700">
+                BETA
               </Badge>
             </div>
             
