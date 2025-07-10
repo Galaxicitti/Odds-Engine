@@ -1,15 +1,13 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TrendingUp, TrendingDown, Wallet, Trophy, User, Search, Filter, Crown } from "lucide-react";
+import { TrendingUp, TrendingDown, Wallet, User, Search, Filter, Crown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import TradingCard from "@/components/TradingCard";
 import Portfolio from "@/components/Portfolio";
 import WalletSection from "@/components/WalletSection";
-import Leaderboard from "@/components/Leaderboard";
 import UserProfile from "@/components/UserProfile";
 
 const Index = () => {
@@ -127,7 +125,7 @@ const Index = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-8 bg-slate-800/50 border border-slate-700 p-1 rounded-xl">
+          <TabsList className="grid w-full grid-cols-4 mb-8 bg-slate-800/50 border border-slate-700 p-1 rounded-xl">
             <TabsTrigger value="trade" className="flex items-center gap-2 data-[state=active]:bg-amber-600 data-[state=active]:text-black font-semibold">
               <TrendingUp className="h-4 w-4" />
               <span className="hidden sm:inline">Trade</span>
@@ -139,10 +137,6 @@ const Index = () => {
             <TabsTrigger value="wallet" className="flex items-center gap-2 data-[state=active]:bg-amber-600 data-[state=active]:text-black font-semibold">
               <Wallet className="h-4 w-4" />
               <span className="hidden sm:inline">Wallet</span>
-            </TabsTrigger>
-            <TabsTrigger value="leaderboard" className="flex items-center gap-2 data-[state=active]:bg-amber-600 data-[state=active]:text-black font-semibold">
-              <Trophy className="h-4 w-4" />
-              <span className="hidden sm:inline">Leaderboard</span>
             </TabsTrigger>
             <TabsTrigger value="profile" className="flex items-center gap-2 data-[state=active]:bg-amber-600 data-[state=active]:text-black font-semibold">
               <User className="h-4 w-4" />
@@ -218,10 +212,6 @@ const Index = () => {
 
           <TabsContent value="wallet">
             <WalletSection balance={balance} setBalance={setBalance} />
-          </TabsContent>
-
-          <TabsContent value="leaderboard">
-            <Leaderboard />
           </TabsContent>
 
           <TabsContent value="profile">
